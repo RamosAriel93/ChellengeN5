@@ -1,0 +1,9 @@
+{
+
+"birthDayBox" : "#BirthdayStep1",
+"provinceBox" : "select2-selection",
+"phoneCodeBox" : "#txtPhoneCode",
+"phoneNumber" : "#txtPhoneNumber"
+
+
+}
