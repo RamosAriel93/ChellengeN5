@@ -1,7 +1,9 @@
+const BASE_URL = 'https://restful-booker.herokuapp.com';
+
 
   class BackendTest {
     getToken() {
-      return cy.request('POST', 'https://restful-booker.herokuapp.com/auth', {
+      return cy.request('POST', `${BASE_URL}/auth`, {
         username: "admin",
         password: "password123",
         failOnStatusCode: false
@@ -17,7 +19,7 @@
     createReservation(firstname, lastname, totalprice, depositpaid, checkin, checkout, additionalneeds) {
       return cy.request({
         method: 'POST',
-        url: 'https://restful-booker.herokuapp.com/booking',
+        url: `${BASE_URL}/booking`,
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',
@@ -48,7 +50,7 @@
     errorCreateReservation(firstname, lastname, totalprice, depositpaid, checkin, checkout, additionalneeds) {
         return cy.request({
           method: 'POST',
-          url: 'https://restful-booker.herokuapp.com/booking',
+          url: `${BASE_URL}/booking/`,
           failOnStatusCode: false,
           headers: {
             'Content-Type': 'application/json',
@@ -76,7 +78,7 @@
       const idBooking = Cypress.env('bookingId');
       return cy.request({
         method: 'GET',
-        url: 'https://restful-booker.herokuapp.com/booking/' + idBooking,
+        url:`${BASE_URL}/booking/` + idBooking,
         headers: {
           Accept: 'application/json'
         }
@@ -100,7 +102,7 @@
       const idBooking = Cypress.env('bookingId');
       return cy.request({
         method: 'PUT',
-        url: 'https://restful-booker.herokuapp.com/booking/' + idBooking,
+        url: `${BASE_URL}/booking/` + idBooking,
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',
@@ -138,7 +140,7 @@
         const idBooking = Cypress.env('bookingId');
         return cy.request({
           method: 'PATCH',
-          url: 'https://restful-booker.herokuapp.com/booking/' + idBooking,
+          url: `${BASE_URL}/booking/` + idBooking,
           headers: {
             'Content-Type': 'application/json',
             Accept: 'application/json',
@@ -177,7 +179,7 @@
         const idBooking = Cypress.env('bookingId');
         return cy.request({
           method: 'DELETE',
-          url: 'https://restful-booker.herokuapp.com/booking/' + idBooking,
+          url: `${BASE_URL}/booking/` + idBooking,
           headers: {
             'Content-Type': 'application/json',
             Accept: 'application/json',
