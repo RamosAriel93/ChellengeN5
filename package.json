@@ -9,6 +9,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^13.6.0"
+    "@shelex/cypress-allure-plugin": "^2.5.0",
+    "cypress": "^13.6.0",
+    "cypress-mochawesome-reporter": "^3.7.0",
+    "mochawesome": "^7.1.3"
   }
 }
