@@ -35,15 +35,15 @@ describe('pruebas',function(){
         cy.log("Test finalizado");
     })
     it('Happy Path',function(){
-        pageIndex.indexForm('01/07/1980', 'Buenos Aires{enter}', '11', '23496789', 500);//esperar a la pagina https://purchase-testing.klimber.com/ar/GroupLife/Step2
+        pageIndex.indexForm('01/07/1980', 'Buenos Aires{enter}', '11', '23496789', 500);//Vamos a la pagina Step2
         page2Step.secondForm('180', '90');//Vamos a la pagina Registration/RegisterUser
         this.emailRand = utils.emailRandom();
         this.dniRand = utils.dniRandom();
         pageRegister.thirdForm('Juan', 'Ramirez', this.dniRand, 'Femenino', 'Femenino', 'Soltera/o', this.emailRand, 
-        '1234567890', 'False', '1234', '01', '02', '1744', 'Cuartel V');//PAginaStep4
-        page4Step.fourthForm('Argentina', 'Moreno', 'Empleado', '6000000', 'Sueldo');//PAginaStep5
-        pageCard.creditCard('4548812049400004');//Step6
-        pageAcept.next();//Step7Resume
+        '1234567890', 'False', '1234', '01', '02', '1744', 'Cuartel V');//Vamos a la pagina Step4
+        page4Step.fourthForm('Argentina', 'Moreno', 'Empleado', '6000000', 'Sueldo');//Vamos a la pagina Step5
+        pageCard.creditCard('4548812049400004');//Vamos a la pagina Step6
+        pageAcept.next();//Vamos a la pagina resume
         pageSummary.acept();
         //Finish
         cy.log("***Verificamos si el formulario se creo correctamente***");
