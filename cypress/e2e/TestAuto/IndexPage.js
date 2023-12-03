@@ -5,14 +5,14 @@ export class IndexPage {
                 }
     
     printTitle(){          
-        cy.title().then((pageTitle) => {
-        cy.log('Título de la página: ' + pageTitle);
+        return cy.title().then((pageTitle) => {
+        return pageTitle;
         });
     }
 
     printUrl(){  
-        cy.url().then((pageUrl) => {
-        cy.log('La URL es: ' + pageUrl);     
+        return cy.url().then((pageUrl) => {
+        return pageUrl;     
         });
     }
 

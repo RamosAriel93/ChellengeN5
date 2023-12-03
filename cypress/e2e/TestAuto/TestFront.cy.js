@@ -20,23 +20,29 @@ describe('Testing Web Netflix',function(){
     beforeEach(function(){
         cy.log("Empezando test");
         cy.visit(BASE_URL);
+        cy.viewport(1360, 768);//Aumentar el tamaño de la pantalla ya que Cypress no tiene Maximize() como otros fraworks.
     })
     afterEach(function(){
         cy.log("Test finalizado");
         cy.screenshot(this.currentTest.title + '_screenshot');
     })
     it('Print Title & Print URL', function () {
-        pageIndex.printTitle();
-        pageIndex.printUrl();
-    
+
+    pageIndex.printTitle().then((title) => {
         let pageTitleExpected = 'Netflix Argentina - Watch TV Shows Online, Watch Movies Online';
+        
+        cy.log('Título de la página: ' + title);
+        expect(title).to.equal(pageTitleExpected);
+        cy.addContext('Título de la página: ' + title);
+        });
+
+    pageIndex.printUrl().then((url) => {
         let pageUrlExpected = 'https://www.netflix.com/ar-en/';
-    
-        cy.title().should('equal', pageTitleExpected);
-        cy.log('Corroboración de Título Exitoso');
-    
-        cy.url().should('equal', pageUrlExpected);
-        cy.log('Corroboración de URL Exitosa');
+
+        cy.log('La URL es: ' + url);
+        expect(url).to.equal(pageUrlExpected);
+        cy.addContext('URL de la página: ' + url);
+        });
       });
 
     it('Complete Registration',function(){
