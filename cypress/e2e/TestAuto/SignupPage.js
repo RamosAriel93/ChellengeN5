@@ -15,6 +15,7 @@ export class SignupPage {
     }
 
     passWordInput(passWord){
+    cy.log("***Ingresando Password***");
     cy.get(this.passInput).type(passWord);
     cy.get(this.nextBtn).should('exist').click();
     cy.wait(800);
@@ -22,6 +23,7 @@ export class SignupPage {
     }
 
     errorMessage() {
+      cy.log("***Extraer mensaje de error ***");
       return cy.get(this.errorMessageTxt).invoke('text');
   }
 

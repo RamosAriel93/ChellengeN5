@@ -10,6 +10,7 @@ export class CreditoptionPage {
 
 
     completeCredit(card, date, cvv, nameCard) {
+        cy.log("***Completando Datos***");
         cy.get(this.cardInput).type(card,{force: true});
         cy.get(this.dueDateInput).type(date, { force: true });
         cy.get(this.cvvInput).type(cvv);
@@ -18,6 +19,7 @@ export class CreditoptionPage {
     }
 
     membershipButton(){
+        cy.log("***Comprobando si el boton esta habilitado***");
         cy.get(this.membershipBtn).should('be.enabled');
     }
   

@@ -24,7 +24,6 @@ describe('Testing Web Netflix',function(){
     })
     afterEach(function(){
         cy.log("Test finalizado");
-        cy.screenshot(this.currentTest.title + '_screenshot');
     })
     it('Print Title & Print URL', function () {
 
@@ -59,15 +58,14 @@ describe('Testing Web Netflix',function(){
         cy.log('Formulario Completo Correctamente');
      }); 
 
-     it('User Exist',function(){
-        this.emailRand = utils.emailRandom();
+     it('User exists with short password',function(){
         pageIndex.emailIndex('testing@gmail.com');
         pageRegistration.nextButton();
         pageRegistration.passWordInput(' ');
         pageRegistration.errorMessage().then((errorMessageText) => {
         let expectedText = 'Your password must contain between 4 and 60 characters.';
         expect(errorMessageText.trim()).to.equal(expectedText.trim());
-        cy.log('El usuario ya existe');
+        cy.log('El usuario ya existe y la contraseña es muy corta');
         })
      }); 
 
