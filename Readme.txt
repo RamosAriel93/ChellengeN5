@@ -18,3 +18,4 @@
 2. Clona este repositorio desde <https://github.com/RamosAriel93/ChellengeSpotify.git>
 3. Para ejecutar las pruebas con cypress utilice el comando <npm run test>
 3. Para ejecutar las pruebas con reporte html utilice el comando < npx cypress run --spec "cypress/e2e/TestAuto/<<prueba>>.cy.js" --browser chrome --headed>
+4. Para ver el reporte generado se debe ingresar a ..\cypress\reports\html\index.html y abrirlo con la opcion "Reveal in File Explorer".
